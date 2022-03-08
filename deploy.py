@@ -60,3 +60,6 @@ simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 # Call -> simulate making the call and getting a return value (these don't make a state change -> same as blue buttons in remix)
 # Transact -> Actually make a state change (in here we need to build/sign and send a transaction -> same as orange buttons in remix)
 
+# Initial value of favorite number
+print(simple_storage.functions.retrieve().call())
+print(simple_storage.functions.store(15).call())
