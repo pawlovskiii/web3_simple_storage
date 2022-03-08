@@ -34,7 +34,6 @@ w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:7545"))
 chain_id = 1337
 my_address = "0xe319d2bEf50E8071Ca9E47bEcD6f616e80D6aa25"
 private_key = os.getenv("PRIVATE_KEY")
-print(private_key)
 
 # Create the contract in Python
 SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
@@ -43,9 +42,13 @@ SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
 nonce = w3.eth.getTransactionCount(my_address)
 
 # 1. Build a transaction
-# 2. Sign a transaction
-# 3. Send a transaction
 transaction = SimpleStorage.constructor().buildTransaction(
     {"gasPrice": w3.eth.gas_price, "chainId": chain_id, "from": my_address, "nonce": nonce}
 )
+
+# 2. Sign a transaction
 signed_tx = w3.eth.account.sign_transaction(transaction, private_key=private_key)
+
+# 3. Send a transaction
+tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
