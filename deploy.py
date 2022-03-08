@@ -43,6 +43,7 @@ nonce = w3.eth.getTransactionCount(my_address)
 
 # 1. Build a transaction
 transaction = SimpleStorage.constructor().buildTransaction(
+    # This nonce can only be used once
     {"gasPrice": w3.eth.gas_price, "chainId": chain_id, "from": my_address, "nonce": nonce}
 )
 
@@ -62,4 +63,11 @@ simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 
 # Initial value of favorite number
 print(simple_storage.functions.retrieve().call())
-print(simple_storage.functions.store(15).call())
+store_transaction = simple_storage.functions.store(15).buildTransaction(
+    # A nonce can only be used once for each transaction, that's why we add + 1
+    {"gasPrice": w3.eth.gas_price, "chainId": chain_id, "from": my_address, "nonce": nonce + 1}
+)
+signed_store_tx = w3.eth.account.sign_transaction(store_transaction, private_key=private_key)
+send_store_tx = w3.eth.send_raw_transaction(signed_store_tx.rawTransaction)
+tx_receipt = w3.eth.wait_for_transaction_receipt(send_store_tx)
+print(simple_storage.functions.retrieve().call())
