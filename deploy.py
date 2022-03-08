@@ -52,3 +52,10 @@ signed_tx = w3.eth.account.sign_transaction(transaction, private_key=private_key
 # 3. Send a transaction
 tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+
+# To work with the contract, we always need:
+# 1. contract address
+# 2. contract ABI
+simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+# Call -> simulate making the call and getting a return value (these don't make a state change -> same as blue buttons in remix)
+# Transact -> Actually make a state change (in here we need to build/sign and send a transaction)
