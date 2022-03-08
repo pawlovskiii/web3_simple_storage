@@ -58,4 +58,5 @@ tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
 # 2. contract ABI
 simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 # Call -> simulate making the call and getting a return value (these don't make a state change -> same as blue buttons in remix)
-# Transact -> Actually make a state change (in here we need to build/sign and send a transaction)
+# Transact -> Actually make a state change (in here we need to build/sign and send a transaction -> same as orange buttons in remix)
+
