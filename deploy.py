@@ -51,8 +51,10 @@ transaction = SimpleStorage.constructor().buildTransaction(
 signed_tx = w3.eth.account.sign_transaction(transaction, private_key=private_key)
 
 # 3. Send a transaction
+print("Deploying contract...")
 tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+print("Deployed!")
 
 # To work with the contract, we always need:
 # 1. contract address
@@ -63,6 +65,7 @@ simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 
 # Initial value of favorite number
 print(simple_storage.functions.retrieve().call())
+print("Updating Contract...")
 store_transaction = simple_storage.functions.store(15).buildTransaction(
     # A nonce can only be used once for each transaction, that's why we add + 1
     {"gasPrice": w3.eth.gas_price, "chainId": chain_id, "from": my_address, "nonce": nonce + 1}
@@ -70,4 +73,5 @@ store_transaction = simple_storage.functions.store(15).buildTransaction(
 signed_store_tx = w3.eth.account.sign_transaction(store_transaction, private_key=private_key)
 send_store_tx = w3.eth.send_raw_transaction(signed_store_tx.rawTransaction)
 tx_receipt = w3.eth.wait_for_transaction_receipt(send_store_tx)
+print("Updated!")
 print(simple_storage.functions.retrieve().call())
