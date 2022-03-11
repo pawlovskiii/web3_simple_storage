@@ -23,7 +23,14 @@ In here I had to create separate things like:
 #### 4. Working with deployed contract 
 
 ### Setup
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. In this case Node.js is only needed for installing prettier-plugin for Solidity. Additionally you'll have to download [Python](https://www.python.org/downloads/) 3.6+ version in order to install all the required packages via pip. From your command line:
+
+#### Additional file for private key
+You must create file named **.env** in order to put there your exported private key from your crypto wallet (e.g [MetaMask](https://metamask.io/)). It's highly recommended, because you avoid risk of losing it by publishing it to your repo. That's why hard-coding it in the **deploy.py** it's a bad practise. It has to be in hexadecimal version, so we put **0x** at the beginning.
+```
+export PRIVATE_KEY=0x...
+```
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. In this case Node.js is only needed for installing prettier-plugin for Solidity. Furthermore you'll have to download [Python](https://www.python.org/downloads/) 3.6+ version in order to install all the required packages via pip. From your command line:
 
 ```bash
 # Clone this repository
