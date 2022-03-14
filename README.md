@@ -23,7 +23,6 @@ In here I had to create separate things like:
 
 ### Setup
 
-#### Additional file for private key
 There's three different ways of working with this project and each way require different approach with certain things like (changing public/private keys, HTTPProvider and chain_id).
 1. Using [Ganache](https://trufflesuite.com/ganache/index.html)
 2. Using [ganache-cli](https://trufflesuite.com/ganache/index.html)
@@ -31,12 +30,29 @@ There's three different ways of working with this project and each way require d
 
 Ganache and ganache-cli are quite similar. The difference is that in ganache-cli you're using command line instead of desktop app.
 
-
+#### Additional file for private key
 You must create file named **.env** in order to put there your exported private key (no matter, which way above you choose), but if you prefer working with TestNet I suggest to use [MetaMask](https://metamask.io/). It has to be in hexadecimal version, so we put **0x** at the beginning (only when you use TestNet, in ganache is right away, so check it carefully). 
 ```
 export PRIVATE_KEY=0x...
 ```
 
+#### Specification for using ganache-cli within deploy.py
+
+```bash
+# for connecting to ganache-cli
+w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+chain_id = 1337
+my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
+```
+#### Specification for using Rinkeby TestNet within deploy.py
+Firstly go to [Infura](https://infura.io/) and create account. After that you have to create a new project from which you need to get HTTPProvider. Here you can check [ChainID](https://chainlist.org/) for Rinkeby. Public and private keys are in the Metamask account (remeber to add **0x** at the beginning of the private key in the **.env** file).
+```bash
+# for connecting to Rinkeby TestNet
+w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
+chain_id = 4
+my_address = "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
+```
+#### Installing dependencies
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. In this case Node.js is only needed for installing prettier-plugin for Solidity. Furthermore you'll have to download [Python](https://www.python.org/downloads/) 3.6+ version in order to install all the required packages via pip. From your command line:
 
 ```bash
@@ -58,28 +74,12 @@ $ npm install -g ganache-cli
 # Install dependencies
 $ npm install 
 ```
-
-Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command.
+#### Available commands for the project
+Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command. With the **--deterministic** flag you should have same public key as shown.
 ```bash
 # Run a local blockchain (always spin up with the exact same private/public keys)
 $ ganache-cli --deterministic
 
 # Run the app
 $ python .\deploy.py
-```
-
-Below I put the specification for using ganache-cli. With the **--deterministic** flag you should have same public key as shown.
-```bash
-# for connecting to ganache-cli
-w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
-chain_id = 1337
-my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
-```
-
-Lastly I wanted to share the Rinkeby TestNet configuration. Firstly go to [Infura](https://infura.io/) and create account. After that you have to create a new project from which you need to get HTTPProvider. Here you can check [ChainID](https://chainlist.org/) for Rinkeby. Public and private keys are in the Metamask account (remeber to add **0x** at the beginning of the private key in the **.env** file).
-```bash
-# for connecting to Rinkeby TestNet
-w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
-chain_id = 4
-my_address = "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
 ```
