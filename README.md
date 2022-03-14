@@ -24,7 +24,15 @@ In here I had to create separate things like:
 ### Setup
 
 #### Additional file for private key
-You must create file named **.env** in order to put there your exported private key from your crypto wallet account (e.g [MetaMask](https://metamask.io/)). It's highly recommended, because you avoid risk of losing it by publishing it to your repo. That's why hard-coding it in the **deploy.py** it's a bad practise. It has to be in hexadecimal version, so we put **0x** at the beginning.
+There's three different ways of working with this project and each way require different approach with certain things like (changing public/private keys, HTTPProvider and chain_id).
+1. Using [Ganache](https://trufflesuite.com/ganache/index.html)
+2. Using [ganache-cli](https://trufflesuite.com/ganache/index.html)
+3. Using TestNet (e.g Rinkeby)
+
+Ganache and ganache-cli are quite similar. The difference is that in ganache-cli you're using command line instead of desktop app.
+
+
+You must create file named **.env** in order to put there your exported private key (no matter, which way above you choose), but if you prefer working with TestNet I suggest to use [MetaMask](https://metamask.io/). It has to be in hexadecimal version, so we put **0x** at the beginning (only when you use TestNet, in ganache is right away, so check it carefully). 
 ```
 export PRIVATE_KEY=0x...
 ```
@@ -52,7 +60,12 @@ $ npm install
 ```
 
 After installing above dependencies I suggest to use below commands in order to play around with the project.
+Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys).
+If you prefer command line, simply type below command.
 ```bash
+# Run a local blockchain (always spin up with the exact same private/public keys)
+$ ganache-cli --deterministic
+
 # Run the app
 $ python .\deploy.py
 ```
