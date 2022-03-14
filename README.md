@@ -81,11 +81,16 @@ $ npm install -g ganache-cli
 $ npm install 
 ```
 #### Available commands for the project
-Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command. With the **--deterministic** flag you should have same public key as shown before [here](#specification-for-using-ganache-cli-within-deploy-file).
+Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command. With the **--deterministic** flag you should have same public key as shown before [here](#specification-for-using-ganache-cli-within-deploy-file). 
 ```bash
 # Run a local blockchain (always spin up with the exact same private/public keys)
 $ ganache-cli --deterministic
 
+# Run the app
+$ python .\deploy.py
+```
+If you want to use Rinkeby set [this](#specification-for-using-rinkeby-testnet-within-deploy-file) configuration and type below command.
+```bash
 # Run the app
 $ python .\deploy.py
 ```
