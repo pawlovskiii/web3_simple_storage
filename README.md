@@ -3,7 +3,13 @@
 ## Table of contents
 * [General info](#general-info)
 * [Learned experience during the project](#learned-experience-during-the-project)
+    * 
 * [Setup](#setup)
+    * [Additional file for private key](#additional-file-for-private-key)
+    * [Specification for using ganache-cli within deploy file](#specification-for-using-ganache-cli-within-deploy-file)
+    * [Specification for using Rinkeby TestNet within deploy file](#specification-for-using-rinkeby-testnet-within-deploy-file)
+    * [Installing dependencies](#installing-dependencies)
+    * [Available commands for the project](#available-commands-for-the-project)
 ### General info
 This project was my first contact with Web3.py. Before that I played around with Remix IDE and created SimpleStorage contract. In here I was mainly working with ganache via desktop app, ganache-cli (console version of dekstop app) and TestNet (Rinkeby).
 ### Learned experience during the project
@@ -36,7 +42,7 @@ You must create file named **.env** in order to put there your exported private 
 export PRIVATE_KEY=0x...
 ```
 
-#### Specification for using ganache-cli within deploy.py
+#### Specification for using ganache-cli within deploy file
 
 ```bash
 # for connecting to ganache-cli
@@ -44,7 +50,7 @@ w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 chain_id = 1337
 my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
 ```
-#### Specification for using Rinkeby TestNet within deploy.py
+#### Specification for using Rinkeby TestNet within deploy file
 Firstly go to [Infura](https://infura.io/) and create account. After that you have to create a new project from which you need to get HTTPProvider. Here you can check [ChainID](https://chainlist.org/) for Rinkeby. Public and private keys are in the Metamask account (remeber to add **0x** at the beginning of the private key in the **.env** file).
 ```bash
 # for connecting to Rinkeby TestNet
@@ -75,7 +81,7 @@ $ npm install -g ganache-cli
 $ npm install 
 ```
 #### Available commands for the project
-Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command. With the **--deterministic** flag you should have same public key as shown.
+Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command. With the **--deterministic** flag you should have same public key as shown before [here](#specification-for-using-ganache-cli-within-deploy-file).
 ```bash
 # Run a local blockchain (always spin up with the exact same private/public keys)
 $ ganache-cli --deterministic
