@@ -59,13 +59,27 @@ $ npm install -g ganache-cli
 $ npm install 
 ```
 
-After installing above dependencies I suggest to use below commands in order to play around with the project.
-Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys).
-If you prefer command line, simply type below command.
+Within Ganache approach firstly open the desktop app in order to spin up the local blockchain (remember to check HTTPProvider address and public/private keys). If you prefer command line, simply type below command.
 ```bash
 # Run a local blockchain (always spin up with the exact same private/public keys)
 $ ganache-cli --deterministic
 
 # Run the app
 $ python .\deploy.py
+```
+
+Below I put the specification for using ganache-cli. With the **--deterministic** flag you should have same public key as shown.
+```bash
+# for connecting to ganache-cli
+w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
+chain_id = 1337
+my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
+```
+
+Lastly I wanted to share the Rinkeby TestNet configuration. Firstly go to [Infura](https://infura.io/) and create account. After that you have to create a new project from which you need to get HTTPProvider. Here you can check [ChainID](https://chainlist.org/) for Rinkeby. Public and private keys are in the Metamask account (remeber to add **0x** at the beginning of the private key in the **.env** file).
+```bash
+# for connecting to Rinkeby TestNet
+w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
+chain_id = 4
+my_address = "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
 ```
