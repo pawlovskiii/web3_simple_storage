@@ -5,8 +5,7 @@
 * [Learned experience during the project](#learned-experience-during-the-project)
 * [Setup](#setup)
 ### General info
-This project was my first contact with Web3.py. Before that I played around with Remix IDE and created SimpleStorage contract.
-
+This project was my first contact with Web3.py. Before that I played around with Remix IDE and created SimpleStorage contract. In here I was mainly working with ganache via desktop app, ganache-cli (console version of dekstop app) and TestNet (Rinkeby).
 ### Learned experience during the project
 #### 1. Compilation of smart contract to **bytecode** and **ABI** to enables EVM to read it
 I needed to write our own compiler to extract **bytecode** and **ABI** from our SimpleStorage contract. 
