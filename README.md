@@ -3,7 +3,6 @@
 ## Table of contents
 * [General info](#general-info)
 * [Learned experience during the project](#learned-experience-during-the-project)
-    * 
 * [Setup](#setup)
     * [Additional file for private key](#additional-file-for-private-key)
     * [Specification for using ganache-cli within deploy file](#specification-for-using-ganache-cli-within-deploy-file)
