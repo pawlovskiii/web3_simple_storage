@@ -27,6 +27,9 @@ I studied that whenever we work with a **contract** we always need two things:
 - contract address
 - contract ABI (application binary interface)
 
+#### 5. Keeping safe your private keys
+I understood that it's crucial thing for our security. Even if we don't work with real money and we're using empty Metamask account, it's always good to build healthy habits around important topics.
+
 When making transactions into the blockchain there's actually two different ways, that we can interact with them.
 1. Interact with a **call**
     - **calls** don't make a state change to the blockchain (nothing on the blockchain would actually change), it's just a simulation
