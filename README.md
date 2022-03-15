@@ -13,20 +13,27 @@
 ### General info
 This project was my first contact with Web3.py. Before that I played around with Remix IDE and created SimpleStorage contract. In here I was mainly working with ganache via desktop app, ganache-cli (console version of dekstop app) and TestNet (Rinkeby).
 ### Learned experience during the project
-#### 1. Compilation of smart contract to **bytecode** and **ABI** to enables EVM to read it
-I needed to write our own compiler to extract **bytecode** and **ABI** from our SimpleStorage contract. 
+#### 1. Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
+I needed to write our own compiler using Web3 to extract **bytecode** and **ABI** from our SimpleStorage contract. 
 #### 2. Ganache ecosystem
 Ganache is a simulated or a fake blockchain, that we can actually use to deploy our smart contracts. It's something similar to JavaScript VM in remix IDE. It's much faster and easier to test things rather than standard TestNet like Rinkeby.
-#### 3. Building a transaction (build/sign/send)
-In here I had to create separate things like:
-- creating a contract in Python
-- nonce (in order to get the lastest transaction)
-- build a transaction (using contract in Python, nonce and few other things to create a dictionary with all the features)
-- sign a transaction (using previous dictionary and our private key)
-- send a transaction (using singed tx)
-
+#### 3. Building a transaction 
+I've learned that a transaction consists of several things like:
+- building a transaction
+- signing a transaction
+- sending a transaction
 #### 4. Working with deployed contract 
+I studied that whenever we work with a **contract** we always need two things:
+- contract address
+- contract ABI (application binary interface)
 
+When making transactions into the blockchain there's actually two different ways, that we can interact with them.
+1. Interact with a **call**
+    - **calls** don't make a state change to the blockchain (nothing on the blockchain would actually change), it's just a simulation
+    - we can always just **call** a function no matter what that function is
+2. Interact with a **transact**
+    - actually make a state change
+    - we can also always **transact** on a function even if it's just a *view* 
 ### Setup
 
 There's three different ways of working with this project and each way require different approach with certain things like (changing public/private keys, HTTPProvider and chain_id).
