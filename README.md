@@ -1,10 +1,9 @@
 # Working with Web3.py within SimpleStorage contract
-
 ## Table of contents
 * [General info](#general-info)
 * [Learned experience during the project](#learned-experience-during-the-project)
 * [Setup](#setup)
-    * [Additional file for private key](#additional-file-for-private-key)
+    * [Additional file for environment variable](#additional-file-for-environment-variable)
     * [Specification for using ganache-cli within deploy file](#specification-for-using-ganache-cli-within-deploy-file)
     * [Specification for using Rinkeby TestNet within deploy file](#specification-for-using-rinkeby-testnet-within-deploy-file)
     * [Installing dependencies](#installing-dependencies)
@@ -25,7 +24,6 @@ I've learned that a transaction consists of several things like:
 I studied that whenever we work with a **contract** we always need two things:
 - contract address
 - contract ABI (application binary interface)
-
 #### 5. Keeping safe your private keys
 I understood that it's crucial thing for our security. Even if we don't work with real money and we're using empty Metamask account, it's always good to build healthy habits around important topics.
 
@@ -45,8 +43,8 @@ There's three different ways of working with this project and each way require d
 
 Ganache and ganache-cli are quite similar. The difference is that in ganache-cli you're using command line instead of desktop app.
 
-#### Additional file for private key
-You must create file named **.env** in order to put there your exported private key (no matter, which way above you choose), but if you prefer working with TestNet I suggest to use [MetaMask](https://metamask.io/). It has to be in hexadecimal version, so we put **0x** at the beginning (only when you use TestNet, in ganache is right away, so check it carefully). 
+#### Additional file for environment variable
+You must create file named **.env** in order to put there your exported private key (no matter, which way above you choose). Also if you prefer working with TestNet I suggest to use [MetaMask](https://metamask.io/). It has to be in hexadecimal version, so we put **0x** at the beginning (only when you use TestNet, in ganache is right away, so check it carefully). 
 ```
 export PRIVATE_KEY=0x...
 ```
