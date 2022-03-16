@@ -17,15 +17,20 @@ This project was my first contact with Web3.py. Before that I played around with
 
 ### Learned experience during the project
 
-#### 1. Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
+#### 1. SimpleStorage contract
+
+I studied the most basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
+- SPDX License.
+
+#### 2. Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
 
 I needed to write our own compiler using Web3 to extract **bytecode** and **ABI** from our SimpleStorage contract.
 
-#### 2. Ganache ecosystem
+#### 3. Ganache ecosystem
 
 Ganache is a simulated or a fake blockchain, that we can actually use to deploy our smart contracts. It's something similar to JavaScript VM in remix IDE. It's much faster and easier to test things rather than standard TestNet like Rinkeby.
 
-#### 3. Building a transaction
+#### 4. Building a transaction
 
 I've learned that a transaction consists of several things like:
 
@@ -33,14 +38,14 @@ I've learned that a transaction consists of several things like:
 - signing a transaction
 - sending a transaction
 
-#### 4. Working with deployed contract
+#### 5. Working with deployed contract
 
 I studied that whenever we work with a **contract** we always need two things:
 
 - contract address
 - contract ABI (application binary interface)
 
-#### 5. Keeping safe your private keys
+#### 6. Keeping safe your private keys
 
 I understood that it's crucial thing for our security. Even if we don't work with real money and we're using empty Metamask account, it's always good to build healthy habits around important topics.
 
