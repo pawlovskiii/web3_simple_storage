@@ -13,7 +13,7 @@
 
 ### General info
 
-This project was my first contact with Web3.py. Before that, I played around with Remix IDE and created SimpleStorage contract. Here I was mainly working with ganache via desktop app, ganache-cli (console version of the desktop app), and TestNet (Rinkeby).
+This project was my first contact with Web3.py. Before that, I played around with Remix IDE and created a SimpleStorage contract. Here I was mainly working with ganache via desktop app, ganache-cli (console version of the desktop app), and TestNet (Rinkeby).
 
 ### Learned experience during the project
 
