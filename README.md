@@ -25,14 +25,35 @@ I studied the most basic structure of the contract. I wanted to share things tha
 2. Keywords:
    - **contract** - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
    - **interface** - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
-   - **import** - allows us to add additional code from certain Github repositories. 
+   - **import** - allows us to add additional code from certain Github repositories.
    - public/private/external/internal
-   - memory/storage
    - mapping
    - pragma
    - struct
    - view/fure Functions
    - uint256 vs int256
+3. **Memory**
+
+In Solidity there are two ways to store information:
+
+- **memory**
+  - data will only be stored during the execution of the function or the contract call
+  - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
+  - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
+  ```bash
+  function addPerson(string memory _name, uint256 _favoriteNumber) public {
+    people.push(People(_favoriteNumber, _name));
+  }
+  ```
+- **storage**
+
+  - if we hold it here, that means data will persist even after
+
+In short:
+
+- **memory** means, that after execution it deletes this variable
+- **storage** means keep it forever
+
 3. EVM
 4. Compiler Error/Warning
 
