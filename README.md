@@ -23,7 +23,7 @@ I studied the most basic structure of the contract. I wanted to share things tha
 
 1. SPDX License
 2. Keywords:
-   - contract
+   - **contract** - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
    - interface
    - import
    - public/private/external/internal
