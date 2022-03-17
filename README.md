@@ -27,7 +27,10 @@ I studied the most basic structure of the contract. I wanted to share things tha
    - **interface** - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
    - **import** - allows us to add additional code from certain Github repositories.
    - public/private/external/internal
-   - mapping
+   - **mapping** - a dictionary-like data structure, with _1 value_ per _key_
+   ```bash
+   mapping(string => uint256) public nameToFavoriteNumber;
+   ```
    - pragma
    - struct
    - view/fure Functions
