@@ -23,18 +23,35 @@ I studied the most basic structure of the contract. I wanted to share things tha
 
 1. SPDX License
 2. Keywords:
+
    - **contract** - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
    - **interface** - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
    - **import** - allows us to add additional code from certain Github repositories.
    - public/private/external/internal
    - **mapping** - a dictionary-like data structure, with _1 value_ per _key_
+
    ```bash
    mapping(string => uint256) public nameToFavoriteNumber;
    ```
+
    - pragma
-   - struct
+   - **struct** - a way to define new types in Solidity. They're almost like creating new objects as well.
+
+   ```bash
+   struct People {
+        uint256 favoriteNumber;
+        string name;
+   }
+
+   People public person = People({
+        favoriteNumber: 69,
+        name: "Jakub"
+    });
+   ```
+
    - view/fure Functions
    - uint256 vs int256
+
 3. **Memory**
 
 In Solidity there are two ways to store information:
