@@ -1,5 +1,11 @@
 # Working with Web3.py within SimpleStorage contract
 
+<style> 
+.keywords{
+  color:rgb(255, 134, 0);
+}
+</style>
+
 ## Table of contents
 
 - [General info](#general-info)
@@ -27,7 +33,7 @@ I studied the most basic structure of the contract. I wanted to share things tha
    - <span class="keywords">contract</span> - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
    - <span class="keywords">interface</span> - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
    - <span class="keywords">import</span> - allows us to add additional code from certain Github repositories.
-   - public/private/external/in class="keywords"ternal
+   - <span class="keywords">public/private/external/internal</span> -
    - <span class="keywords">mapping</span> - a dictionary-like data structure, with _1 value_ per _key_
 
    ```bash
@@ -193,9 +199,3 @@ If you want to use Rinkeby set [this](#specification-for-using-rinkeby-testnet-w
 # Run the app
 $ python .\deploy.py
 ```
-
-<style> 
-.keywords{
-  color:rgb(255, 134, 0);
-}
-</style>
