@@ -17,75 +17,86 @@ This project was my first contact with Web3.py. Before that, I played around wit
 
 ### Learned experience during the project
 
-#### a) SimpleStorage contract
+#### A) SimpleStorage contract
 
 I studied the most basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
 
-1. SPDX License
-2. Keywords:
+1. **SPDX License**
+2. **Keywords**:
 
-   - <span style="color:orange">contract</span> - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
-   - <span style="color:orange">interface</span> - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
-   - <span style="color:orange">import</span> - allows us to add additional code from certain Github repositories.
-   - <span style="color:orange">public/private/external/internal</span> -
-   - <span style="color:orange">mapping</span> - a dictionary-like data structure, with _1 value_ per _key_
+   - **contract**
+     - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
+   - **interface**
+     - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
+   - **import**
+     - allows us to add additional code from certain Github repositories.
+   - **public/private/external/internal**
+     - ...
+   - **mapping**
 
-   ```bash
-   mapping(string => uint256) public nameToFavoriteNumber;
-   ```
+     - a dictionary-like data structure, with _1 value_ per _key_
 
-   - <span style="color:orange">pragma</span> -
-   - <span style="color:orange">struct</span> - a way to define new types in Solidity. They're almost like creating new objects as well.
+     ```bash
+     mapping(string => uint256) public nameToFavoriteNumber;
+     ```
 
-   ```bash
-   struct People {
-        uint256 favoriteNumber;
-        string name;
-   }
+   - **pragma**
+     - ...
+   - **struct**
 
-   People public person = People({
-        favoriteNumber: 69,
-        name: "Jakub"
-    });
-   ```
+     - a way to define new types in Solidity. They're almost like creating new objects as well.
 
-   - <span class="keywords">view/fure Functions</span> -
-   - <span class="keywords">uint256 vs int256</span> -
+     ```bash
+      struct People {
+           uint256 favoriteNumber;
+           string name;
+      }
+
+      People public person = People({
+           favoriteNumber: 69,
+           name: "Jakub"
+       });
+     ```
+
+   - **view/fure Functions**
+     - ...
+   - **uint256 vs int256**
+     - ...
 
 3. **Memory**
 
-In Solidity there are two ways to store information:
+   In Solidity there are two ways to store information:
 
-- **memory**
-  - data will only be stored during the execution of the function or the contract call
-  - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
-  - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
-  ```bash
-  function addPerson(string memory _name, uint256 _favoriteNumber) public {
-    people.push(People(_favoriteNumber, _name));
-  }
-  ```
-- **storage**
+   - **memory**
+     - data will only be stored during the execution of the function or the contract call
+     - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
+     - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
+     ```bash
+     function addPerson(string memory _name, uint256 _favoriteNumber) public {
+       people.push(People(_favoriteNumber, _name));
+     }
+     ```
+   - **storage**
 
-  - if we hold it here, that means data will persist even after
+     - if we hold it here, that means data will persist even after
 
-In short:
+   In short:
 
-- **memory** means, that after execution it deletes this variable
-- **storage** means keep it forever
+   - **memory** means, that after execution it deletes this variable
+   - **storage** means keep it forever
 
-3. EVM
-4. Compiler Error/Warning
+4. EVM
+5. Compiler Error/Warning
 
-#### b) Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
+#### B) Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
 
 I needed to write our compiler using Web3 to extract **bytecode** and **ABI** from our SimpleStorage contract.
 
-#### c) Ganache ecosystem
+#### C) Ganache ecosystem
 
 Ganache is a simulated or a fake blockchain, that we can use to deploy our smart contracts. It's something similar to JavaScript VM in remix IDE. It's much faster and easier to test things rather than standard TestNet like Rinkeby.
 
-#### d) Building a transaction
+#### D) Building a transaction
 
 I've learned that a transaction consists of several things like:
 
@@ -93,14 +104,14 @@ I've learned that a transaction consists of several things like:
 - signing a transaction
 - sending a transaction
 
-#### e) Working with deployed contract
+#### E) Working with deployed contract
 
 I studied that whenever we work with a **contract** we always need two things:
 
 - contract address
 - contract ABI (application binary interface)
 
-#### f) Keeping safe your private keys
+#### F) Keeping safe your private keys
 
 I understood that it's a crucial thing for our security. Even if we don't work with real money and we're using an empty Metamask account, it's always good to build healthy habits around important topics.
 
