@@ -24,18 +24,18 @@ I studied the most basic structure of the contract. I wanted to share things tha
 1. SPDX License
 2. Keywords:
 
-   - **contract** - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
-   - **interface** - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
-   - **import** - allows us to add additional code from certain Github repositories.
-   - public/private/external/internal
-   - **mapping** - a dictionary-like data structure, with _1 value_ per _key_
+   - <span class="keywords">contract</span> - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
+   - <span class="keywords">interface</span> - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
+   - <span class="keywords">import</span> - allows us to add additional code from certain Github repositories.
+   - public/private/external/in class="keywords"ternal
+   - <span class="keywords">mapping</span> - a dictionary-like data structure, with _1 value_ per _key_
 
    ```bash
    mapping(string => uint256) public nameToFavoriteNumber;
    ```
 
-   - pragma
-   - **struct** - a way to define new types in Solidity. They're almost like creating new objects as well.
+   - <span class="keywords">pragma</span> -
+   - <span class="keywords">struct</span> - a way to define new types in Solidity. They're almost like creating new objects as well.
 
    ```bash
    struct People {
@@ -49,8 +49,8 @@ I studied the most basic structure of the contract. I wanted to share things tha
     });
    ```
 
-   - view/fure Functions
-   - uint256 vs int256
+   - <span class="keywords">view/fure Functions</span> -
+   - <span class="keywords">uint256 vs int256</span> -
 
 3. **Memory**
 
@@ -193,3 +193,9 @@ If you want to use Rinkeby set [this](#specification-for-using-rinkeby-testnet-w
 # Run the app
 $ python .\deploy.py
 ```
+
+<style> 
+.keywords{
+  color:rgb(255, 134, 0);
+}
+</style>
