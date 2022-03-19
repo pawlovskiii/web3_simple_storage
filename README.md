@@ -15,6 +15,12 @@
 
 This project was my first contact with Web3.py. Before that, I played around with Remix IDE and created a SimpleStorage contract. Here I was mainly working with ganache via desktop app, ganache-cli (console version of the desktop app), and TestNet (Rinkeby).
 
+This project was created by [freecodecamp](https://www.freecodecamp.org/) in [tutorial](https://www.youtube.com/watch?v=M576WGiDBdQ&t=27066s). I'm extremely grateful for giving this cost-free opportunity to learn all the insights of Solidity, Blockchain, and Smart Contracts.
+
+At first, I went through this project, created some notes, and fast moved to the more advanced ones. Later I understood, that I should go back and create this documentation in my own words to remember all the necessary basic concepts.
+
+Before that, I always tried to create documentation after the project finished, but I never put that amount of time as here.
+
 ### Learned experience during the project
 
 #### A) SimpleStorage contract
