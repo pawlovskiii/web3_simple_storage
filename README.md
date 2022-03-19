@@ -19,9 +19,13 @@ This project was my first contact with Web3.py. Before that, I played around wit
 
 #### A) SimpleStorage contract
 
-I studied the most basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
+I studied basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
 
 1. **SPDX License**
+   - Solidity and the Ethereum community found that trust in a smart contract can be better established if source code is available and in terms of legality and copyright it just makes life a lot easier if you add that license identifier right at the top of your solidity. I chose the MIT license identifier because it’s the most open license out there. It means that anybody can use this code and we don’t care. We put the line below at the top of any Solidity file.
+   ```bash
+   // SPDX-License-Identifier: MIT
+   ```
 2. **Keywords**:
 
    - **contract**
@@ -86,8 +90,7 @@ I studied the most basic structure of the contract. I wanted to share things tha
    - **storage** means keep it forever
 
 4. **EVM**
-   - All the solidity code that I wrote and when I interacted with this blockchain was compiled down to the EVM, also known as the Ethereum Virtual Machine. A lot of the blockchains out there today are called EVM compatible and that means all this solidity code that we’re creating can still compile down to EVM and deployed on their blockchain. 
-5. **Compiler Error/Warning**
+   - All the solidity code that I wrote and when I interacted with this blockchain was compiled down to the EVM, also known as the Ethereum Virtual Machine. A lot of the blockchains out there today are called EVM compatible and that means all this solidity code that we’re creating can still compile down to EVM and deployed on their blockchain.
 
 #### B) Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
 
