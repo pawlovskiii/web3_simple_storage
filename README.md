@@ -51,7 +51,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
      ```
 
    - **pragma**
-     - it's used to enable certain compiler features or checks. 
+     - it's used to enable certain compiler features or checks.
    - **struct**
 
      - a way to define new types in Solidity. They're almost like creating new objects as well.
@@ -71,7 +71,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
    - **view/fure Functions**
      - ...
    - **uint256 vs int256**
-     - ...
+     - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_.
 
 3. **Memory**
 
