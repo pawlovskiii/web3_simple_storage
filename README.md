@@ -19,7 +19,7 @@ This project was created by [freecodecamp](https://www.freecodecamp.org/) in [tu
 
 At first, I went through this project, created some notes, and fast moved to the more advanced ones. Later I understood, that I should go back and create this documentation in my own words to remember all the necessary basic concepts.
 
-Before that, I always tried to create documentation after the project finished, but I never put that amount of time as here.
+Before that, I always tried to create documentation after the project finished, but I never have put that amount of time as here.
 
 ### Learned experience during the project
 
@@ -51,7 +51,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
      ```
 
    - **pragma**
-     - ...
+     - it's used to enable certain compiler features or checks. 
    - **struct**
 
      - a way to define new types in Solidity. They're almost like creating new objects as well.
