@@ -4,6 +4,17 @@
 
 - [General info](#general-info)
 - [Learned experience during the project](#learned-experience-during-the-project)
+  - [SimpleStorage contract](#simplestorage-contract)
+    - [SPDX License](#spdx-license)
+    - [Keywords](#keywords)
+    - [Functions that are view or pure](#functions-that-are-view-or-pure)
+    - [Memory](#memory)
+    - [EVM](#evm)
+  - [Compilation of smart contract](#compilation-of-smart-contract)
+  - [Ganache ecosystem](#ganache-ecosystem)
+  - [Building a transaction](#building-a-transaction)
+  - [Working with deployed contract](#working-with-deployed-contract)
+  - [Keeping safe your private keys](#keeping-safe-your-private-keys)
 - [Setup](#setup)
   - [Additional file for environment variable](#additional-file-for-environment-variable)
   - [Specification for using ganache-cli within deploy file](#specification-for-using-ganache-cli-within-deploy-file)
@@ -23,16 +34,16 @@ Before that, I always tried to create documentation after the project finished, 
 
 ### Learned experience during the project
 
-#### A) SimpleStorage contract
+#### SimpleStorage contract
 
 I studied basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
 
-1. **SPDX License**
+##### SPDX License
    - Solidity and the Ethereum community found that trust in a smart contract can be better established if source code is available and in terms of legality and copyright it just makes life a lot easier if you add that license identifier right at the top of your solidity. I chose the MIT license identifier because it’s the most open license out there. It means that anybody can use this code and we don’t care. We put the line below at the top of any Solidity file.
    ```bash
    // SPDX-License-Identifier: MIT
    ```
-2. **Keywords**:
+##### Keywords
 
    - **contract**
      - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
@@ -73,7 +84,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
 
    Coming soon.
 
-4. **Functions that are view/fure**
+##### Functions that are view or pure
 
    Functions or methods are self-contained modules, that will execute some task for us.
 
@@ -88,7 +99,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
      - _public_ variables automatically, are also _view_ functions
    - _pure_ functions are functions, that purely do some type of math
 
-5. **Memory**
+##### Memory
 
    In Solidity there are two ways to store information:
 
@@ -110,18 +121,18 @@ I studied basic structure of the contract. I wanted to share things that were ne
    - **memory** means, that after execution it deletes this variable
    - **storage** means keep it forever
 
-6. **EVM**
+##### EVM
    - All the solidity code that I wrote and when I interacted with this blockchain was compiled down to the EVM, also known as the Ethereum Virtual Machine. A lot of the blockchains out there today are called EVM compatible and that means all this solidity code that we’re creating can still compile down to EVM and deployed on their blockchain.
 
-#### B) Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
+#### Compilation of smart contract
 
-I needed to write our compiler using Web3 to extract **bytecode** and **ABI** from our SimpleStorage contract.
+I needed to write our compiler using Web3 to extract **bytecode** and **ABI** from our SimpleStorage contract to enable EVM to read it.
 
-#### C) Ganache ecosystem
+#### Ganache ecosystem
 
 Ganache is a simulated or a fake blockchain, that we can use to deploy our smart contracts. It's something similar to JavaScript VM in remix IDE. It's much faster and easier to test things rather than standard TestNet like Rinkeby.
 
-#### D) Building a transaction
+#### Building a transaction
 
 I've learned that a transaction consists of several things like:
 
@@ -129,14 +140,14 @@ I've learned that a transaction consists of several things like:
 - signing a transaction
 - sending a transaction
 
-#### E) Working with deployed contract
+#### Working with deployed contract
 
 I studied that whenever we work with a **contract** we always need two things:
 
 - contract address
 - contract ABI (application binary interface)
 
-#### F) Keeping safe your private keys
+#### Keeping safe your private keys
 
 I understood that it's a crucial thing for our security. Even if we don't work with real money and we're using an empty Metamask account, it's always good to build healthy habits around important topics.
 
