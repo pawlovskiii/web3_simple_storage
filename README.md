@@ -71,7 +71,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
    - **view/fure Functions**
      - ...
    - **uint256 vs int256**
-     - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_.
+     - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
 
 3. **Memory**
 
