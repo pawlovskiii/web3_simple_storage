@@ -68,12 +68,25 @@ I studied basic structure of the contract. I wanted to share things that were ne
        });
      ```
 
-   - **view/fure Functions**
-     - ...
    - **uint256 vs int256**
      - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
 
-3. **Memory**
+3. **view/fure Functions**
+
+   Functions or methods are self-contained modules, that will execute some task for us.
+
+   - _state-changing_ function calls are _transactions_
+     - transactions === smart contracts interactions === function calls
+
+   On a blockchain whenever you're calling a function or whenever you make some _state change_ to the blockchain, you're also making a transaction. That's why making a function call or deploying a contract costs a little bit of gas.
+
+   _view_ and _pure_ are non-state changing functions. These two keywords define functions that you don't have to make a transaction on
+
+   - _view_ function means that we want to read some state of the blockchain, so we're just reading off the blockchain. We're not making a state change then, we don't need to make a transaction
+     - _public_ variables automatically, are also _view_ functions
+   - _pure_ functions are functions, that purely do some type of math
+
+4. **Memory**
 
    In Solidity there are two ways to store information:
 
@@ -95,7 +108,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
    - **memory** means, that after execution it deletes this variable
    - **storage** means keep it forever
 
-4. **EVM**
+5. **EVM**
    - All the solidity code that I wrote and when I interacted with this blockchain was compiled down to the EVM, also known as the Ethereum Virtual Machine. A lot of the blockchains out there today are called EVM compatible and that means all this solidity code that we’re creating can still compile down to EVM and deployed on their blockchain.
 
 #### B) Compilation of smart contract to **bytecode** and **ABI** to enable EVM to read it
