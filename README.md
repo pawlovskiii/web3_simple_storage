@@ -83,17 +83,24 @@ I studied basic structure of the contract. I wanted to share things that were ne
 - **uint256 vs int256**
   - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
 
-##### Order of functions
+##### Visibility Quantifiers
 
-    Ordering helps readers identify which functions they can call.
+Following are various visibility quantifiers for functions/state variables of a contract.
 
-      1. Public functions
-
-      2. External functions
-
-      3. Internal functions
-
-      4. Private functions
+- **external**
+  - External functions are not meant to be called by the same contract. It has to be called by an external contract.
+  - For state variables, **external** is not possible.
+- **public**
+  - Public functions/variables can be called by anybody. Variables are a function call to just look at them and return whatever that variable is.
+- **internal**
+  - Internal functions/variables can only be called by other functions/variables inside of this contract or in its derived contract.
+  - The reason that we cannot see this variable in our original contract deployment is that we don't give a state variable a _visibility_. It'll automatically get set to **internal**.
+    ```bash
+    uint256 favoriteNumber; // internal
+    uint256 public favoriteNumber; // public
+    ```
+- **private**
+  - Private is the most restrictive as private functions and state variables are only visible for the contract they are defined in and not even by derived contracts.
 
 ##### Functions that are view or pure
 
@@ -118,11 +125,11 @@ In Solidity there are two ways to store information:
   - data will only be stored during the execution of the function or the contract call
   - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
   - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
-  ```bash
-  function addPerson(string memory _name, uint256 _favoriteNumber) public {
-    people.push(People(_favoriteNumber, _name));
-  }
-  ```
+    ```bash
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+      people.push(People(_favoriteNumber, _name));
+    }
+    ```
 - **storage**
 
   - if we hold it here, that means data will persist even after
