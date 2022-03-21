@@ -39,90 +39,102 @@ Before that, I always tried to create documentation after the project finished, 
 I studied basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
 
 ##### SPDX License
-   - Solidity and the Ethereum community found that trust in a smart contract can be better established if source code is available and in terms of legality and copyright it just makes life a lot easier if you add that license identifier right at the top of your solidity. I chose the MIT license identifier because it’s the most open license out there. It means that anybody can use this code and we don’t care. We put the line below at the top of any Solidity file.
-   ```bash
-   // SPDX-License-Identifier: MIT
-   ```
+
+- Solidity and the Ethereum community found that trust in a smart contract can be better established if source code is available and in terms of legality and copyright it just makes life a lot easier if you add that license identifier right at the top of your solidity. I chose the MIT license identifier because it’s the most open license out there. It means that anybody can use this code and we don’t care. We put the line below at the top of any Solidity file.
+
+  ```bash
+  // SPDX-License-Identifier: MIT
+  ```
+
 ##### Keywords
 
-   - **contract**
-     - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
-   - **interface**
-     - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
-   - **import**
-     - allows us to add additional code from certain Github repositories.
-   - **mapping**
+- **contract**
+  - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
+- **interface**
+  - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
+- **import**
+  - allows us to add additional code from certain Github repositories.
+- **mapping**
 
-     - a dictionary-like data structure, with _1 value_ per _key_
+  - a dictionary-like data structure, with _1 value_ per _key_
 
-     ```bash
-     mapping(string => uint256) public nameToFavoriteNumber;
-     ```
+    ```bash
+    mapping(string => uint256) public nameToFavoriteNumber;
+    ```
 
-   - **pragma**
-     - it's used to enable certain compiler features or checks.
-   - **struct**
+- **pragma**
+  - it's used to enable certain compiler features or checks.
+- **struct**
 
-     - a way to define new types in Solidity. They're almost like creating new objects as well.
+  - a way to define new types in Solidity. They're almost like creating new objects as well.
 
-     ```bash
-      struct People {
-           uint256 favoriteNumber;
-           string name;
-      }
+    ```bash
+     struct People {
+          uint256 favoriteNumber;
+          string name;
+     }
 
-      People public person = People({
-           favoriteNumber: 69,
-           name: "Jakub"
-       });
-     ```
+     People public person = People({
+          favoriteNumber: 69,
+          name: "Jakub"
+      });
+    ```
 
-   - **uint256 vs int256**
-     - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
+- **uint256 vs int256**
+  - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
 
-3. **public/private/external/internal Functions**
+##### Order of functions
 
-   Coming soon.
+    Ordering helps readers identify which functions they can call.
+
+      1. Public functions
+
+      2. External functions
+
+      3. Internal functions
+
+      4. Private functions
 
 ##### Functions that are view or pure
 
-   Functions or methods are self-contained modules, that will execute some task for us.
+Functions or methods are self-contained modules, that will execute some task for us.
 
-   - _state-changing_ function calls are _transactions_
-     - transactions === smart contracts interactions === function calls
+- _state-changing_ function calls are _transactions_
+  - transactions === smart contracts interactions === function calls
 
-   On a blockchain whenever you're calling a function or whenever you make some _state change_ to the blockchain, you're also making a transaction. That's why making a function call or deploying a contract costs a little bit of gas.
+On a blockchain whenever you're calling a function or whenever you make some _state change_ to the blockchain, you're also making a transaction. That's why making a function call or deploying a contract costs a little bit of gas.
 
-   _view_ and _pure_ are non-state changing functions. These two keywords define functions that you don't have to make a transaction on
+_view_ and _pure_ are non-state changing functions. These two keywords define functions that you don't have to make a transaction on
 
-   - _view_ function means that we want to read some state of the blockchain, so we're just reading off the blockchain. We're not making a state change then, we don't need to make a transaction
-     - _public_ variables automatically, are also _view_ functions
-   - _pure_ functions are functions, that purely do some type of math
+- _view_ function means that we want to read some state of the blockchain, so we're just reading off the blockchain. We're not making a state change then, we don't need to make a transaction
+  - _public_ variables automatically, are also _view_ functions
+- _pure_ functions are functions, that purely do some type of math
 
 ##### Memory
 
-   In Solidity there are two ways to store information:
+In Solidity there are two ways to store information:
 
-   - **memory**
-     - data will only be stored during the execution of the function or the contract call
-     - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
-     - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
-     ```bash
-     function addPerson(string memory _name, uint256 _favoriteNumber) public {
-       people.push(People(_favoriteNumber, _name));
-     }
-     ```
-   - **storage**
+- **memory**
+  - data will only be stored during the execution of the function or the contract call
+  - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
+  - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
+  ```bash
+  function addPerson(string memory _name, uint256 _favoriteNumber) public {
+    people.push(People(_favoriteNumber, _name));
+  }
+  ```
+- **storage**
 
-     - if we hold it here, that means data will persist even after
+  - if we hold it here, that means data will persist even after
 
-   In short:
+In short:
 
-   - **memory** means, that after execution it deletes this variable
-   - **storage** means keep it forever
+- **memory** means, that after execution it deletes this variable
+- **storage** means keep it forever
 
 ##### EVM
-   - All the solidity code that I wrote and when I interacted with this blockchain was compiled down to the EVM, also known as the Ethereum Virtual Machine. A lot of the blockchains out there today are called EVM compatible and that means all this solidity code that we’re creating can still compile down to EVM and deployed on their blockchain.
+
+- All the solidity code that I wrote and when I interacted with this blockchain was compiled down to the EVM, also known as the Ethereum Virtual Machine. A lot of the blockchains out there today are called EVM compatible and that means all this solidity code that we’re creating can still compile down to EVM and deployed on their blockchain.
 
 #### Compilation of smart contract
 
