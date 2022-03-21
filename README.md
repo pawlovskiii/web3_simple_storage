@@ -7,6 +7,7 @@
   - [SimpleStorage contract](#simplestorage-contract)
     - [SPDX License](#spdx-license)
     - [Keywords](#keywords)
+    - [Visibility Quantifiers](#visibility-quantifiers)
     - [Functions that are view or pure](#functions-that-are-view-or-pure)
     - [Memory](#memory)
     - [EVM](#evm)
