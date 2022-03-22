@@ -177,11 +177,11 @@ I understood that it's a crucial thing for our security. Even if we don't work w
 When making transactions into the blockchain there are two different ways, that we can interact with them.
 
 1. Interact with a **call**
-   - **calls** don't make a state change to the blockchain (nothing on the blockchain would change), it's just a simulation
-   - we can always just **call** a function no matter what that function is
+   - It doesn't make a state change to the blockchain (nothing on the blockchain would change), just a simulation.
+   - We can always just **call** a function no matter what that function is.
 2. Interact with a **transact**
-   - actually, make a state change
-   - we can also always **transact** on a function even if it's just a _view_
+   - Actually, make a state change.
+   - We can also always **transact** on a function even if it's just a _view_.
 
 ### Setup
 
