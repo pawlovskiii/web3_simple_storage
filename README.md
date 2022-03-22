@@ -50,24 +50,24 @@ I studied basic structure of the contract. I wanted to share things that were ne
 ##### Keywords
 
 - **contract**
-  - stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages
+  - Stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages.
 - **interface**
-  - some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
+  - Some contracts don't start with the contract keyword, only the interface keyword. Interfaces don't have full-function implementations.
 - **import**
-  - allows us to add additional code from certain Github repositories.
+  - Allows us to add additional code from certain Github repositories.
 - **mapping**
 
-  - a dictionary-like data structure, with _1 value_ per _key_
+  - A dictionary-like data structure, with _1 value_ per _key_.
 
     ```bash
     mapping(string => uint256) public nameToFavoriteNumber;
     ```
 
 - **pragma**
-  - it's used to enable certain compiler features or checks.
+  - It's used to enable certain compiler features or checks.
 - **struct**
 
-  - a way to define new types in Solidity. They're almost like creating new objects as well.
+  - A way to define new types in Solidity. They're almost like creating new objects as well.
 
     ```bash
      struct People {
@@ -82,7 +82,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
     ```
 
 - **uint256 vs int256**
-  - due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
+  - Due to the fact of the Ethereum characteristic type _uint256_ is crucial. It's an unsigned integer with a minimum value of 0. It's just can not be negative, unlike _int256_. It's an integer of size 256 bits, which gave us 32 bytes.
 
 ##### Visibility Quantifiers
 
@@ -112,33 +112,36 @@ Functions or methods are self-contained modules, that will execute some task for
 
 On a blockchain whenever you're calling a function or whenever you make some _state change_ to the blockchain, you're also making a transaction. That's why making a function call or deploying a contract costs a little bit of gas.
 
-_view_ and _pure_ are non-state changing functions. These two keywords define functions that you don't have to make a transaction on
+**view** and **pure** are non-state changing functions. These two keywords define functions that you don't have to make a transaction on
 
-- _view_ function means that we want to read some state of the blockchain, so we're just reading off the blockchain. We're not making a state change then, we don't need to make a transaction
-  - _public_ variables automatically, are also _view_ functions
-- _pure_ functions are functions, that purely do some type of math
+- **view**
+  - These function means that we want to read some state of the blockchain, so we're just reading off the blockchain. We're not making a state change then, we don't need to make a transaction.
+  - **public** variables automatically, are also **view** functions
+- **pure**
+  - These are functions, that purely do some type of math.
 
 ##### Memory
 
 In Solidity there are two ways to store information:
 
 - **memory**
-  - data will only be stored during the execution of the function or the contract call
-  - _strings_ are an array of bytes (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**
-  - in this case, since we only need _\_name_ during the execution, we can have it be _string_ **memory** _\_name_
-    ```bash
-    function addPerson(string memory _name, uint256 _favoriteNumber) public {
-      people.push(People(_favoriteNumber, _name));
-    }
-    ```
+  - Data will only be stored during the execution of the function or the contract call.
+    - **string** is a dynamically-sized byte array (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**. 
+    - **string** is not a value-type!
+    - In this case, since we only need parameter _\_name_ during the execution, we can have it be _string_ **memory** _\_name_.
+      ```bash
+      function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        people.push(People(_favoriteNumber, _name));
+      }
+      ```
 - **storage**
 
   - if we hold it here, that means data will persist even after
 
 In short:
 
-- **memory** means, that after execution it deletes this variable
-- **storage** means keep it forever
+- **memory** means, that after execution it deletes this variable.
+- **storage** means keep it forever.
 
 ##### EVM
 
