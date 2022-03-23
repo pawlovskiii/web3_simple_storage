@@ -48,7 +48,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
   // SPDX-License-Identifier: MIT
   ```
 
-#### Keywords
+#### Keywords:
 
 - **contract**
   - Stands for the smart contract, that we're going to create. We can think of this keyword, similarly to class keyword in Java or other Object-Oriented languages.
