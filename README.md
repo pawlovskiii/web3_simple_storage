@@ -60,7 +60,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
 
   - A dictionary-like data structure, with _1 value_ per _key_.
 
-    ```bash
+    ```java
     mapping(string => uint256) public nameToFavoriteNumber;
     ```
 
@@ -70,7 +70,7 @@ I studied basic structure of the contract. I wanted to share things that were ne
 
   - A way to define new types in Solidity. They're almost like creating new objects as well.
 
-    ```bash
+    ```java
      struct People {
           uint256 favoriteNumber;
           string name;
@@ -97,7 +97,7 @@ Following are various visibility quantifiers for functions/state variables of a 
 - **internal**
   - Internal functions/variables can only be called by other functions/variables inside of this contract or in its derived contract.
   - The reason that we cannot see this variable in our original contract deployment is that we don't give a state variable a _visibility_. It'll automatically get set to **internal**.
-    ```bash
+    ```java
     uint256 favoriteNumber; // internal
     uint256 public favoriteNumber; // public
     ```
@@ -132,7 +132,7 @@ In Solidity there are two ways to store information:
     - **string** is a dynamically-sized byte array (a special type of array, that we can append text to), so because it's technically an object, we have to decide where we want to store it in **memory** or **storage**.
     - **string** is not a value-type!
     - In this case, since we only need parameter _\_name_ during the execution, we can have it be _string_ **memory** _\_name_.
-      ```bash
+      ```js
       function addPerson(string memory _name, uint256 _favoriteNumber) public {
         people.push(People(_favoriteNumber, _name));
       }
