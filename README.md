@@ -267,6 +267,8 @@ You must create a file named **.env** to put there your exported private key (no
 export PRIVATE_KEY=0x...
 ```
 
+**.env** has to be in the **.gitignore** file! Here it's done. Remember to put it in your projects!
+
 ### Specification for using ganache-cli within deploy file
 
 ```bash
