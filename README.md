@@ -17,6 +17,7 @@
   - [Building a transaction](#building-a-transaction)
   - [Working with deployed contract](#working-with-deployed-contract)
   - [Keeping safe your private keys](#keeping-safe-your-private-keys)
+  - [Interacting with the blockchain - call vs transact](#interacting-with-the-blockchain---call-vs-transact)
 - [Setup](#setup)
   - [Additional file for environment variable](#additional-file-for-environment-variable)
   - [Specification for using ganache-cli within deploy file](#specification-for-using-ganache-cli-within-deploy-file)
