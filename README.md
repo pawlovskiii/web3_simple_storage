@@ -179,14 +179,72 @@ I studied that whenever we work with a **contract** we always need two things:
 
 I understood that it's a crucial thing for our security. Even if we don't work with real money and we're using an empty Metamask account, it's always good to build healthy habits around important topics.
 
-When making transactions into the blockchain there are two different ways, that we can interact with them.
+### Interacting with the blockchain - call vs transact
 
-1. Interact with a **call**
-   - It doesn't make a state change to the blockchain (nothing on the blockchain would change), just a simulation.
-   - We can always just **call** a function no matter what that function is.
-2. Interact with a **transact**
-   - Actually, make a state change.
-   - We can also always **transact** on a function even if it's just a _view_.
+We can interact with functions and variables of the Solidity code within two ways:
+
+1. **call**
+
+   - It doesn't make a state change to the blockchain (nothing on the blockchain would change). We can simply view the values, without making a state change.
+   - Two examples from the SimpleStorage contract:
+
+     ```js
+      // this will get initialized to 0!
+      uint256 favoriteNumber;
+
+      function retrieve() public view returns(uint256) {
+          return favoriteNumber;
+      }
+     ```
+
+     ```java
+      struct People {
+          uint256 favoriteNumber;
+          string name;
+      }
+
+      People public person = People({
+          favoriteNumber: 69,
+          name: "Jakub"
+      });
+     ```
+
+2. **transact**
+
+   - Make a state change.
+   - Two examples from the SimpleStorage contract:
+
+     ```java
+       // this will get initialized to 0!
+       uint256 favoriteNumber;
+
+       function store(uint256 _favoriteNumber) external {
+           favoriteNumber = _favoriteNumber;
+       }
+     ```
+
+     ```java
+      // this will get initialized to 0!
+      uint256 favoriteNumber;
+
+      struct People {
+          uint256 favoriteNumber;
+          string name;
+       }
+
+      People public person = People({
+          favoriteNumber: 69,
+           name: "Jakub"
+       });
+
+       People[] public people;
+       mapping(string => uint256) public nameToFavoriteNumber;
+
+      function addPerson(string memory _name, uint256 _favoriteNumber) public {
+           people.push(People(_favoriteNumber, _name));
+          nameToFavoriteNumber[_name] = _favoriteNumber;
+       }
+     ```
 
 ## Setup
 
