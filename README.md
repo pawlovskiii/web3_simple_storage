@@ -160,6 +160,8 @@ Ganache is a simulated or a fake blockchain, that we can use to deploy our smart
 
 ### Building a transaction
 
+We need to build our transaction, because in this case we'd be deploying a contract, which is going to make a state change.
+
 I've learned that a transaction consists of several things like:
 
 - building a transaction
