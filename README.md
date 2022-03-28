@@ -178,7 +178,9 @@ I studied that whenever we work with a **contract** we always need two things:
 
 ### Keeping safe your private keys
 
-I understood that it's a crucial thing for our security. Even if we don't work with real money and we're using an empty Metamask account, it's always good to build healthy habits around important topics.
+It's not so great idea to have plain text on our computer, but still better than hard coding it into our script. For purpose of **private key** safety, it's worth building healthy habits around that concept, even if at this moment we're not working with real money.
+
+Later I'll introduce the safest way to keep your **private key** in your project.
 
 ### Interacting with the blockchain - call vs transact
 
