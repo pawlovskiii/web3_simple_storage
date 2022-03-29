@@ -303,7 +303,7 @@ export PRIVATE_KEY=0x...
 
 ### Specification for using ganache-cli within deploy file
 
-```bash
+```python
 # for connecting to ganache-cli
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 chain_id = 1337
@@ -314,7 +314,7 @@ my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
 
 Firstly go to [Infura](https://infura.io/) and create an account. After that, you have to create a new project from which you need to get HTTPProvider. Here you can check [ChainID](https://chainlist.org/) for Rinkeby. Public and private keys are in the Metamask account (remember to add **0x** at the beginning of the private key in the **.env** file).
 
-```bash
+```python
 # for connecting to Rinkeby TestNet
 w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
 chain_id = 4
