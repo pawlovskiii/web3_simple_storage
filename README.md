@@ -165,9 +165,36 @@ We need to build our transaction, because in this case we'd be deploying a contr
 
 I've learned that a transaction consists of several things like:
 
-- building a transaction
-- signing a transaction
-- sending a transaction
+- **building a transaction**
+
+  In web3.py we always have to give at least a couple of parameters.
+
+  ```python
+  transaction = SimpleStorage.constructor().buildTransaction(
+    {"gasPrice": w3.eth.gas_price, "chainId": chain_id, "from": my_address, "nonce": nonce}
+  )
+  ```
+
+- **signing a transaction**
+
+  We're signing a transaction using **private keys**. More precisely we're signing a transaction that is deploying a contract to the blockchain.
+
+  ```python
+  signed_tx = w3.eth.account.sign_transaction(transaction, private_key=private_key)
+  ```
+
+- **sending a transaction**
+
+  We want to send this to the blockchain, so it actually can deploy.
+
+  ```python
+  print("Deploying contract...")
+
+  tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+  tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+
+  print("Deployed!")
+  ```
 
 ### Working with deployed contract
 
