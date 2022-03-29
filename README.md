@@ -203,6 +203,11 @@ I studied that whenever we work with a **contract** we always need two things:
 - contract address
 - contract ABI (application binary interface)
 
+```python
+# Working with Contract -> 1. Contract Address | 2. Contract ABI
+simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+```
+
 ### Keeping safe your private keys
 
 It's not so great idea to have plain text on our computer, but still better than hard coding it into our script. For purpose of **private key** safety, it's worth building healthy habits around that concept, even if at this moment we're not working with real money.
