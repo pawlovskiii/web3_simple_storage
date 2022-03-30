@@ -293,10 +293,10 @@ Ganache and ganache-cli are quite similar. The difference is that in ganache-cli
 
 ### Additional file for environment variable
 
-You must create a file named **.env** to put there your exported private key (no matter, which way above you choose). Also if you prefer working with TestNet I suggest using [MetaMask](https://metamask.io/). It has to be in hexadecimal version, so we put **0x** at the beginning (only when you use TestNet, in ganache is right away, so check it carefully).
+You must create a file named **.env** to put there your exported private key (no matter, which way above you choose). It has to be in hexadecimal version, so we put 0x at the beginning (only when you use TestNet, in ganache is right away, so check it carefully).
 
 ```
-export PRIVATE_KEY=0x...
+export PRIVATE_KEY=...
 ```
 
 **.env** has to be in the **.gitignore** file! Here it's done. Remember to put it in your projects!
@@ -312,7 +312,14 @@ my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
 
 ### Specification for using Rinkeby TestNet within deploy file
 
-Firstly go to [Infura](https://infura.io/) and create an account. After that, you have to create a new project from which you need to get HTTPProvider. Here you can check [ChainID](https://chainlist.org/) for Rinkeby. Public and private keys are in the Metamask account (remember to add **0x** at the beginning of the private key in the **.env** file).
+1. Go to [Infura](https://infura.io/) and create an account. After that, you have to create a new project from which you need to get HTTPProvider.
+2. Here you can check [ChainID](https://chainlist.org/) for Rinkeby.
+3. You need to create a crypto wallet, I suggest [MetaMask](https://metamask.io/).
+
+   - Firstly extract **public key**, which is right below your account name in your MetaMask.
+   - Secondly, take out **private key**. Open MM, then click on the 3 vertical dots (_Accounts Options_), then _Account details_ and _Export Private Key_.
+
+     Here remember to add **0x** at the beginning of the private key in the **.env** file, because it has to be in the hexadecimal version.
 
 ```python
 # for connecting to Rinkeby TestNet
