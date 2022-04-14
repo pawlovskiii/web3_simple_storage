@@ -295,8 +295,10 @@ Ganache and ganache-cli are quite similar. The difference is that in ganache-cli
 
 You must create a file named **.env** to put there your exported private key (no matter, which way above you choose). It has to be in hexadecimal version, so we put 0x at the beginning (only when you use TestNet, in ganache is right away, so check it carefully).
 
+Below I put the private key from the first wallet, that you're gonna see when you try to [run your local blockchain](#available-commands-for-the-project) within ganache-cli with **--deterministic** flag. So feel free to copy & paste it.
+
 ```
-export PRIVATE_KEY=...
+export PRIVATE_KEY=0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d
 ```
 
 **.env** has to be in the **.gitignore** file! Here it's done. Remember to put it in your projects!
@@ -308,6 +310,7 @@ export PRIVATE_KEY=...
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 chain_id = 1337
 my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
+private_key = os.getenv("PRIVATE_KEY")
 ```
 
 ### Specification for using Rinkeby TestNet within deploy file
@@ -326,6 +329,7 @@ my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
 w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
 chain_id = 4
 my_address = "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
+private_key = os.getenv("PRIVATE_KEY")
 ```
 
 ### Installing dependencies
@@ -342,8 +346,14 @@ $ cd web3_simple_storage
 # Install web3.py
 $ pip install web3
 
+# If within cmd occurs any problem, try to add the below flag
+$ pip install web3 --user
+
 # Install python-dotenv
 $ pip install python-dotenv
+
+# Install solcx
+$ pip install py-solc-x
 
 # Install ganache-cli
 $ npm install -g ganache-cli
