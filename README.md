@@ -305,6 +305,8 @@ export PRIVATE_KEY=0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b
 
 ### Specification for using ganache-cli within deploy file
 
+Currently the **deploy.py** is set to run on the Rinkeby TestNet, but if you prefer to work with **ganache-cli**, just copy & replace the current code with the below.
+
 ```python
 # for connecting to ganache-cli
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
