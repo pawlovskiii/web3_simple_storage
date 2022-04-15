@@ -360,7 +360,7 @@ $ pip install py-solc-x
 # Install ganache-cli
 $ npm install -g ganache-cli
 
-# Install dependencies
+# Install dependencies (not required)
 $ npm install
 ```
 
