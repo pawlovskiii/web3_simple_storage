@@ -39,7 +39,7 @@ Before that, I always tried to create documentation after the project finished, 
 
 ### SimpleStorage contract
 
-I studied basic structure of the contract. I wanted to share things that were new for me when entering Solidity language.
+I studied the basic structure of the contract. I wanted to share things that were new for me when entering the Solidity language.
 
 #### SPDX License
 
