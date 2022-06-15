@@ -345,22 +345,13 @@ $ git clone https://github.com/pawlovskiii/web3_simple_storage
 # Go into the repository
 $ cd web3_simple_storage
 
-# Install web3.py
-$ pip install web3
-
-# If within cmd occurs any problem, try to add the below flag
-$ pip install web3 --user
-
-# Install python-dotenv
-$ pip install python-dotenv
-
-# Install solcx
-$ pip install py-solc-x
+# To download all the necessarily Python packages needed for the project
+$ pip install -r requirements.txt
 
 # Install ganache-cli
 $ npm install -g ganache-cli
 
-# Install dependencies (not required)
+# Install dependencies from package.json (not required)
 $ npm install
 ```
 
@@ -372,6 +363,9 @@ Within the Ganache approach firstly open the desktop app to spin up the local bl
 # Run a local blockchain (always spin up with the exact same private/public keys)
 $ ganache-cli --deterministic
 
+# Enter src folder
+$ cd src
+
 # Run the app
 $ python .\deploy.py
 ```
@@ -379,6 +373,9 @@ $ python .\deploy.py
 If you want to use Rinkeby set [this](#specification-for-using-rinkeby-testnet-within-deploy-file) configuration and type the below command.
 
 ```bash
+# Enter src folder
+$ cd src
+
 # Run the app
 $ python .\deploy.py
 ```
