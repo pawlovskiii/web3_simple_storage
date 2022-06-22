@@ -2,3 +2,5 @@
 node_modules
 compiled_code.json
 compiledContract.cpython-310.pyc
+connectingBlockchain.cpython-310.pyc
+contractCreation.cpython-310.pyc
