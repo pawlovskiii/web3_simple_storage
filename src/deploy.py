@@ -1,38 +1,25 @@
-from solcx import compile_standard, install_solc
 import json
 from web3 import Web3
 import os
 from dotenv import load_dotenv
+from compiledContract import compiledSol
 
 load_dotenv()
 
-with open("./SimpleStorage.sol", "r") as file:
-    simple_storage_file = file.read()
-
-# Compile Out Solidity
-install_solc("0.6.4")
-compiled_sol = compile_standard(
-    {
-        "language": "Solidity",
-        "sources": {"SimpleStorage.sol": {"content": simple_storage_file}},
-        "settings": {"outputSelection": {"*": {"*": ["abi", "metadata", "evm.bytecode", "evm.sourceMap"]}}},
-    },
-    solc_version="0.6.4",
-)
 
 with open("compiled_code.json", "w") as file:
-    json.dump(compiled_sol, file)
+    json.dump(compiledSol(), file)
 
 # get bytecode
-bytecode = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["evm"]["bytecode"]["object"]
+bytecode = compiledSol()["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["evm"]["bytecode"]["object"]
 
 # get abi
-abi = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["abi"]
+abi = compiledSol()["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["abi"]
 
-# for connecting to Rinkeby
-w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
-chain_id = 4
-my_address = "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
+# for connecting to ganache-cli
+w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+chain_id = 1337
+my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
 private_key = os.getenv("PRIVATE_KEY")
 
 # Create the contract in Python
