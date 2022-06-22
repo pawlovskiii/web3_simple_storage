@@ -309,10 +309,17 @@ Currently the **deploy.py** is set to run on the Rinkeby TestNet, but if you pre
 
 ```python
 # for connecting to ganache-cli
-w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-chain_id = 1337
-my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
-private_key = os.getenv("PRIVATE_KEY")
+
+def get_w3():
+    return Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+
+
+def get_chain_id() -> int:
+    return 1337
+
+
+def getPublicKey() -> str:
+    return "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
 ```
 
 ### Specification for using Rinkeby TestNet within deploy file
@@ -328,10 +335,17 @@ private_key = os.getenv("PRIVATE_KEY")
 
 ```python
 # for connecting to Rinkeby TestNet
-w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
-chain_id = 4
-my_address = "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
-private_key = os.getenv("PRIVATE_KEY")
+
+def get_w3():
+    return Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7abda71ad2fa49b18ca946c72c6b558a"))
+
+
+def get_chain_id() -> int:
+    return 4
+
+
+def getPublicKey() -> str:
+    return "0xD3E4842d2bD11E18E96Ad08D2Fd6264C66A5D52f"
 ```
 
 ### Installing dependencies
@@ -363,19 +377,13 @@ Within the Ganache approach firstly open the desktop app to spin up the local bl
 # Run a local blockchain (always spin up with the exact same private/public keys)
 $ ganache-cli --deterministic
 
-# Enter src folder
-$ cd src
-
-# Run the app
-$ python .\deploy.py
+# In the second terminal - run the app
+$ python .\main.py
 ```
 
 If you want to use Rinkeby set [this](#specification-for-using-rinkeby-testnet-within-deploy-file) configuration and type the below command.
 
 ```bash
-# Enter src folder
-$ cd src
-
 # Run the app
-$ python .\deploy.py
+$ python .\main.py
 ```
