@@ -2,11 +2,11 @@ from src.scripts.connectingBlockchain import get_w3
 from src.scripts.connectingBlockchain import get_w3, get_chain_id, getPublicKey, getPrivateKey
 
 
-def checkStoredNumber(simple_storage):
+def checkStoredNumber(simple_storage) -> None:
     print(simple_storage.functions.retrieve().call())
 
 
-def storeNumberInContract(simple_storage, num, nonce):
+def storeNumberInContract(simple_storage, num: int, nonce: int) -> None:
     store_transaction = simple_storage.functions.store(num).buildTransaction(
         {"gasPrice": get_w3().eth.gas_price, "chainId": get_chain_id(), "from": getPublicKey(), "nonce": nonce + 1}
     )

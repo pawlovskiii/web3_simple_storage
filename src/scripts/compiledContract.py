@@ -3,8 +3,8 @@ from solcx import compile_standard, install_solc
 with open("./src/contracts/SimpleStorage.sol", "r") as file:
     simple_storage_file = file.read()
 
-# Compile Out Solidity
-def compiledSol():
+
+def compiledSol() -> dict:
     install_solc("0.6.4")
     compiled_sol = compile_standard(
         {

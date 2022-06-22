@@ -5,12 +5,11 @@ from src.scripts.contractCreation import create_contract
 nonce = get_w3().eth.getTransactionCount(getPublicKey())
 
 
-def build_transaction():
+def build_transaction() -> dict:
     transaction = (
         create_contract()
         .constructor()
         .buildTransaction(
-            # This nonce can only be used once
             {
                 "gasPrice": get_w3().eth.gas_price,
                 "chainId": get_chain_id(),
