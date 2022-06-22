@@ -1,5 +1,5 @@
-from src.compiledContract import compiledSol
-from src.connectingBlockchain import get_w3
+from src.scripts.compiledContract import compiledSol
+from src.scripts.connectingBlockchain import get_w3
 
 # get bytecode
 def get_bytecode():

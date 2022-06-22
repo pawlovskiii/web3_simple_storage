@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
-from src.connectingBlockchain import get_w3, get_chain_id, getPublicKey, getPrivateKey
-from src.contractCreation import get_abi
-from src.sendTransaction import nonce, deploying_contract
+from src.scripts.connectingBlockchain import get_w3, get_chain_id, getPublicKey, getPrivateKey
+from src.scripts.contractCreation import get_abi
+from src.scripts.sendTransaction import nonce, deploying_contract
 
 load_dotenv()
 
@@ -24,3 +24,4 @@ signed_store_tx = get_w3().eth.account.sign_transaction(store_transaction, priva
 send_store_tx = get_w3().eth.send_raw_transaction(signed_store_tx.rawTransaction)
 tx_receipt = get_w3().eth.wait_for_transaction_receipt(send_store_tx)
 print("Updated!")
+print(simple_storage.functions.retrieve().call())

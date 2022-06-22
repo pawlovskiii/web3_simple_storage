@@ -1,5 +1,5 @@
-from src.connectingBlockchain import get_w3, get_chain_id, getPublicKey, getPrivateKey
-from src.contractCreation import create_contract, get_abi
+from src.scripts.connectingBlockchain import get_w3, get_chain_id, getPublicKey, getPrivateKey
+from src.scripts.contractCreation import create_contract, get_abi
 
 
 nonce = get_w3().eth.getTransactionCount(getPublicKey())

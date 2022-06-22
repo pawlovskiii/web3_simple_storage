@@ -1,6 +1,6 @@
 from solcx import compile_standard, install_solc
 
-with open("./src/SimpleStorage.sol", "r") as file:
+with open("./src/contracts/SimpleStorage.sol", "r") as file:
     simple_storage_file = file.read()
 
 # Compile Out Solidity
