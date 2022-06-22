@@ -1,4 +1,3 @@
-import json
 from web3 import Web3
 import os
 from dotenv import load_dotenv
@@ -6,9 +5,6 @@ from src.compiledContract import compiledSol
 
 load_dotenv()
 
-
-with open("compiled_code.json", "w") as file:
-    json.dump(compiledSol(), file)
 
 # get bytecode
 bytecode = compiledSol()["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["evm"]["bytecode"]["object"]
