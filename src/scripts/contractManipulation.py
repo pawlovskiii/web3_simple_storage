@@ -7,7 +7,7 @@ def checkStoredNumber(simple_storage) -> None:
 
 
 def storeNumberInContract(simple_storage, num: int, nonce: int) -> None:
-    store_transaction = simple_storage.functions.store(num).buildTransaction(
+    store_transaction: dict = simple_storage.functions.store(num).buildTransaction(
         {"gasPrice": get_w3().eth.gas_price, "chainId": get_chain_id(), "from": getPublicKey(), "nonce": nonce + 1}
     )
 

@@ -6,7 +6,7 @@ with open("./src/contracts/SimpleStorage.sol", "r") as file:
 
 def compiledSol() -> dict:
     install_solc("0.6.4")
-    compiled_sol = compile_standard(
+    compiled_sol: dict = compile_standard(
         {
             "language": "Solidity",
             "sources": {"SimpleStorage.sol": {"content": simple_storage_file}},

@@ -6,7 +6,7 @@ nonce = get_w3().eth.getTransactionCount(getPublicKey())
 
 
 def build_transaction() -> dict:
-    transaction = (
+    transaction: dict = (
         create_contract()
         .constructor()
         .buildTransaction(
