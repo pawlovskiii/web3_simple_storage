@@ -4,3 +4,5 @@ compiled_code.json
 compiledContract.cpython-310.pyc
 connectingBlockchain.cpython-310.pyc
 contractCreation.cpython-310.pyc
+sendTransaction.cpython-310.pyc
+main.cpython-310.pyc
