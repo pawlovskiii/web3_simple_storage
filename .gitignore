@@ -1,3 +1,4 @@
 .env
 node_modules
 compiled_code.json
+compiledContract.cpython-310.pyc
