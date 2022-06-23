@@ -7,10 +7,17 @@ from src.scripts.contractManipulation import checkStoredNumber, storeNumberInCon
 
 load_dotenv()
 
-simple_storage = get_w3().eth.contract(address=deploying_contract().contractAddress, abi=get_abi())
 
-checkStoredNumber(simple_storage)
-print("Updating Contract...")
-storeNumberInContract(simple_storage, 15, nonce)
-print("Updated!")
-checkStoredNumber(simple_storage)
+def main():
+
+    simple_storage = get_w3().eth.contract(address=deploying_contract().contractAddress, abi=get_abi())
+
+    checkStoredNumber(simple_storage)
+    print("Updating Contract...")
+    storeNumberInContract(simple_storage, 15, nonce)
+    print("Updated!")
+    checkStoredNumber(simple_storage)
+
+
+if __name__ == "__main__":
+    main()
